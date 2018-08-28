@@ -1,4 +1,4 @@
-add_llvm_loadable_module(MyPass File.cpp)
+add_llvm_loadable_module(MyPass MyPass.cpp)
 
 # Use C++11 to compile your pass (i.e., supply -std=c++11).
 target_compile_features(MyPass PRIVATE cxx_range_for cxx_auto_type)

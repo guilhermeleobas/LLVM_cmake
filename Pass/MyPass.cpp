@@ -14,9 +14,11 @@
 #include "llvm/IR/Metadata.h"
 #include "llvm/IR/IRBuilder.h"
 
-#define DEBUG_TYPE "Instrument"
+#include "MyPass.h"
 
-bool Instrument::runOnModule(Module &M) {
+#define DEBUG_TYPE "MyPass"
+
+bool MyPass::runOnModule(Module &M) {
 
   for (auto &F : M){
     for (auto &BB : F){
@@ -29,6 +31,6 @@ bool Instrument::runOnModule(Module &M) {
   return true;
 }
 
-char Instrument::ID = 0;
-static RegisterPass<Instrument> X("MyLLVMPass",
+char MyPass::ID = 0;
+static RegisterPass<MyPass> X("MyLLVMPass",
     "My LLVM Pass description");
