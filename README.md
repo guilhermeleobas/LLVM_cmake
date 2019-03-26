@@ -1,11 +1,13 @@
 ### This is a simple way to create a LLVM pass outside the LLVM tree
 
-`build.sh` script will create a build folder, build the pass and copy the dylib/so file to the LLVM build folder
+The commands below will build the pass inside the `build` folder.
 
 ```bash
-./build.sh
+mkdir build
 
-$ $HOME/Programs/llvm61/build/bin/opt -load MyPass.so -help | grep Pass
+LLVM_DIR=path/to/llvm/build/lib/cmake cmake -H. -Bbuild && make -C build
+
+$ path/to/llvm/build/bin/opt -load MyPass.so -help | grep Pass
 -MyLLVMPass                                     - My LLVM Pass description
 
 ```
